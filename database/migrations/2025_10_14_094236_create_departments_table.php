@@ -17,6 +17,10 @@ return new class extends Migration
             $table->foreignId('deputy_head_user_id')->nullable()->constrained('users')->onDelete('set null');
             $table->boolean('is_active')->default(true);
             $table->timestamps();
+
+            $table->index('is_active');
+            $table->index('head_user_id');
+            $table->index('deputy_head_user_id');
         });
     }
 
