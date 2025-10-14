@@ -13,8 +13,8 @@ return new class extends Migration
             $table->string('name')->unique();
             $table->text('description')->nullable();
             $table->string('code', 10)->unique()->nullable();
-            $table->foreignId('head_user_id')->nullable()->constrained('users')->onDelete('set null');
-            $table->foreignId('deputy_head_user_id')->nullable()->constrained('users')->onDelete('set null');
+            $table->unsignedBigInteger('head_user_id')->nullable();
+            $table->unsignedBigInteger('deputy_head_user_id')->nullable();
             $table->boolean('is_active')->default(true);
             $table->timestamps();
 
