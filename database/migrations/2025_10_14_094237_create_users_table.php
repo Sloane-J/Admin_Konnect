@@ -15,14 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('profile_photo_path')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->foreignId('department_id')->nullable()->constrained('departments')->onDelete('set null');
             $table->boolean('is_active')->default(true);
             $table->timestamp('last_login_at')->nullable();
-            $table->boolean('email_notifications')->default(true);
-            $table->jsonb('notification_settings')->default('{"document_routed": {"email": true, "in_app": true}, "document_opened": {"email": false, "in_app": true}, "visitor_checked_in": {"email": true, "in_app": true}, "incident_created": {"email": true, "in_app": true}, "broadcast": {"email": true, "in_app": true}}');
             $table->timestamps();
 
             // Indexes
