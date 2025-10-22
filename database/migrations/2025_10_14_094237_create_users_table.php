@@ -24,6 +24,7 @@ return new class extends Migration
             $table->boolean('email_notifications')->default(true);
             $table->jsonb('notification_settings')->default('{"document_routed": {"email": true, "in_app": true}, "document_opened": {"email": false, "in_app": true}, "visitor_checked_in": {"email": true, "in_app": true}, "incident_created": {"email": true, "in_app": true}, "broadcast": {"email": true, "in_app": true}}');
             $table->timestamps();
+            $table->softDeletes();
 
             // Indexes
             $table->index('department_id');
